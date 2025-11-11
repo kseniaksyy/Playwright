@@ -15,8 +15,10 @@ test.describe('Sign In Tests with POM', () => {
 
   test('Successful sign in', async ({ page }) => {
     await signInForm.loginWithCredentials(
-      usersList.mainUser.email,
-      usersList.mainUser.password
+      process.env.VALID_USER1!,
+      process.env.VALID_PASS1!
+      // usersList.mainUser.email,
+      // usersList.mainUser.password
     )
     await expect(page.locator('h1', { hasText: 'Garage' })).toBeVisible()
   })
