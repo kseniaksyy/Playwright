@@ -31,7 +31,7 @@ test.describe('Sign Up Tests with POM', () => {
         await signUpForm.expectRedBorder(signUpForm['nameField'])
       })
 
-      test('Name field characters short)', async () => {
+      test.only('Name field characters short)', async () => {
         await signUpForm.fillName('K')
         await signUpForm['nameField'].blur()
         await signUpForm.verifyErrorIsDisplayed(
