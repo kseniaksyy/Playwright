@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import HomePage from '../pom/pages/HomePage'
-import SignUpForm from '../pom/forms/SignUpForm'
+import HomePage from '../../pom/pages/HomePage'
+import SignUpForm from '../../pom/forms/SignUpForm'
 let homePage: HomePage
 let signUpForm: SignUpForm
 
