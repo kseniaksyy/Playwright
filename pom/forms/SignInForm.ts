@@ -1,4 +1,4 @@
-import { Locator } from '@playwright/test'
+import { expect, Locator } from '@playwright/test'
 import BasePage from '../pages/BasePage'
 
 export default class SignInForm extends BasePage {
@@ -28,6 +28,7 @@ export default class SignInForm extends BasePage {
     await this.enterEmail(email)
     await this.enterPassword(password)
     await this.clickLoginButton()
+    await expect(this.page.locator('h1', { hasText: 'Garage' })).toBeVisible()
   }
 
 async triggerEmptyErrorOnField(fieldName: string): Promise<any> {
