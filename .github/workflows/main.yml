@@ -16,13 +16,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright browsers (на всякий случай, хотя они уже в образе)
+      - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
         run: npx playwright test signIn
 
-      - name: Upload Playwright report (если упадёт — всё равно увидим отчёт)
+      - name: Upload Playwright repor
         if: always()
         uses: actions/upload-artifact@v4
         with:
