@@ -74,7 +74,7 @@ test.describe('API Requests', () => {
       expect(body.message).toBe('Brand not found')
     })
 
-     test('Edit invalid car data', async () => {
+    test('Edit invalid car data', async () => {
       const carToAdd = CarsFactory.EditCar(6, 1, 900)
       const response = await carsController.addCar(carToAdd, sid)
       const body = await response.json()
@@ -82,6 +82,6 @@ test.describe('API Requests', () => {
       expect(response.status()).toBe(404)
       expect(body.status).toBe('error')
       expect(body.message).toBe('Brand not found')
+    })
   })
-})
 })
