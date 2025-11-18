@@ -1,5 +1,5 @@
-import { defineConfig, devices } from '@playwright/test';
-require('dotenv').config();
+import { defineConfig, devices } from '@playwright/test'
+require('dotenv').config()
 
 /**
  * Read environment variables from file.
@@ -27,11 +27,11 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-     baseURL: process.env.BASE_URL,
-     httpCredentials: {
-        'username': process.env.HTTPS_CREDENTIALS_USERNAME!,
-        'password': process.env.HTTPS_CREDENTIALS_PASSWORD!
-     },
+    baseURL: process.env.BASE_URL,
+    httpCredentials: {
+      username: process.env.HTTPS_CREDENTIALS_USERNAME!,
+      password: process.env.HTTPS_CREDENTIALS_PASSWORD!,
+    },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -40,19 +40,27 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'setup',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: '*/setup/**.ts',
+    },
+
+    {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      testIgnore: '*/setup/**.ts',
+      dependencies: ['setup'],
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
@@ -81,4 +89,4 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-});
+})
