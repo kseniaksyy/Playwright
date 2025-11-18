@@ -1,4 +1,4 @@
-import { test } from '../fixtures/screenSizeFixtures'
+import { test } from '../../../fixtures/screenSizeFixtures'
 
 test.describe('Using fixtures', () => {
   test('Open wiki via smallScreen', async ({ smallScreen }) => {

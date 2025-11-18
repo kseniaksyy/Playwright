@@ -1,7 +1,7 @@
 import test, { expect } from '@playwright/test'
-import { usersList } from '../test-data/users'
-import HomePage from '../pom/pages/HomePage'
-import SignInForm from '../pom/forms/SignInForm'
+import { usersList } from '../../test-data/users'
+import HomePage from '../../pom/pages/HomePage'
+import SignInForm from '../../pom/forms/SignInForm'
 let homePage: HomePage
 let signInForm: SignInForm
 
