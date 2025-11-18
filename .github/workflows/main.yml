@@ -22,7 +22,7 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test signIn
 
-      - name: Upload Playwright repor
+      - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
         with:
